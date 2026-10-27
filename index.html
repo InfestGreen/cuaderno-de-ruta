@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuaderno de ruta</title>
+<meta name="description" content="Recomendaciones de vuelos, alojamientos y lugares para preparar viajes con calma.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Urbanist:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dune-100: #f9f0e0;
+    --dune-200: #f1ddc2;
+    --dune-300: #e6c6a1;
+    --dune-400: #d9ad83;
+    --cream: #fffdf7;
+    --ochre-glow: #d49e4e;
+    --earth-600: #6a5543;
+    --earth-900: #3a2a1c;
+    --sienna-600: #a8512f;
+    --sienna-800: #904324;
+
+    --background: var(--dune-100);
+    --foreground: var(--earth-900);
+    --card: var(--cream);
+    --muted-foreground: var(--earth-600);
+    --highlight: var(--sienna-800);
+    --ring: var(--sienna-600);
+    --border: color-mix(in srgb, var(--earth-900) 14%, transparent);
+    --page-gradient: linear-gradient(165deg, var(--dune-100) 0%, var(--dune-200) 35%, var(--dune-300) 70%, var(--dune-400) 100%);
+    --page-glow: radial-gradient(circle at 88% 4%, color-mix(in srgb, var(--ochre-glow) 45%, transparent), transparent 42%);
+    --shape-surface: 20px;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--background);
+    background-image: var(--page-glow), var(--page-gradient);
+    background-attachment: fixed;
+    color: var(--foreground);
+    font-family: 'Urbanist', system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  a { color: var(--highlight); text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; border-radius: 4px; }
+
+  .wrap { max-width: 860px; margin: 0 auto; padding: 72px 16px 48px; }
+  header { padding: 0 8px 40px; }
+  .eyebrow { margin: 0 0 12px; font-weight: 500; font-size: 0.875rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  h1, h2 { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-style: normal; margin: 0; }
+  h1 { font-size: clamp(3rem, 9vw, 5.5rem); line-height: 1; }
+  .lead { margin: 20px 0 0; max-width: 34ch; font-size: 1.375rem; font-weight: 300; line-height: 1.4; }
+
+  .sheet { background: var(--card); border-radius: var(--shape-surface); }
+  .sheet > section { padding: 36px 40px; }
+  .sheet > section + section { border-top: 1px solid var(--border); }
+  h2 { font-size: 2rem; line-height: 1.15; margin-bottom: 12px; }
+  p { margin: 0 0 12px; }
+  p:last-child { margin-bottom: 0; }
+  .muted { color: var(--muted-foreground); }
+
+  .topics { list-style: none; margin: 20px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .topics h3 { margin: 0 0 4px; font-size: 1.0625rem; font-weight: 500; }
+  .topics p { color: var(--muted-foreground); font-size: 1rem; }
+
+  .routes { list-style: none; margin: 16px 0 0; padding: 0; }
+  .routes li { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-top: 1px solid var(--border); }
+  .routes li:first-child { border-top: 0; padding-top: 0; }
+  .routes .name { font-weight: 500; }
+  .routes .when { color: var(--muted-foreground); white-space: nowrap; }
+  .tag { display: inline-block; margin-left: 8px; padding: 1px 10px; border-radius: 999px; border: 1px solid var(--border); font-size: 0.8125rem; color: var(--muted-foreground); vertical-align: 2px; }
+
+  footer { padding: 28px 8px 0; font-size: 0.9375rem; }
+
+  @media (max-width: 640px) {
+    .wrap { padding-top: 48px; }
+    .sheet > section { padding: 28px 20px; }
+    .topics { grid-template-columns: 1fr; gap: 16px; }
+    .routes li { flex-direction: column; gap: 2px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Por Eduardo</p>
+    <h1>Cuaderno de ruta</h1>
+    <p class="lead">Recomendaciones de vuelos, alojamientos y lugares para preparar viajes con calma.</p>
+  </header>
+
+  <main class="sheet">
+    <section aria-labelledby="sobre">
+      <h2 id="sobre">Sobre este cuaderno</h2>
+      <p>Aquí cuento cómo preparo mis viajes: cómo llegar, dónde dormir, qué ver y hacer, y cuándo suele salir más barato reservar.</p>
+      <p>Para planificarlos uso herramientas propias que siguen la evolución de los precios de vuelos, hoteles, actividades y ferris. Lo que aprendo con ellas acaba en estas páginas.</p>
+    </section>
+
+    <section aria-labelledby="temas">
+      <h2 id="temas">Qué encontrarás</h2>
+      <ul class="topics">
+        <li><h3>Vuelos</h3><p>Rutas, horarios que compensan y cómo se mueven los precios con el tiempo.</p></li>
+        <li><h3>Alojamientos</h3><p>Hoteles y apartamentos que merecen la pena en cada destino.</p></li>
+        <li><h3>Lugares y actividades</h3><p>Barrios, excursiones y planes, también en barco.</p></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="rutas">
+      <h2 id="rutas">Primeras rutas</h2>
+      <ul class="routes">
+        <li><span class="name">Lisboa y Oporto <span class="tag">En preparación</span></span><span class="when">Primavera de 2027</span></li>
+        <li><span class="name">Atenas y Santorini <span class="tag">En preparación</span></span><span class="when">Verano de 2027</span></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="about" lang="en">
+      <h2 id="about">About</h2>
+      <p>Cuaderno de ruta (“route notebook”) is Eduardo’s travel notebook: recommendations on flights, places to stay, sights and activities, written while planning each trip with my own price-tracking tools.</p>
+    </section>
+
+    <section aria-labelledby="enlaces">
+      <h2 id="enlaces">Sobre los enlaces</h2>
+      <p class="muted">Algunos enlaces de este cuaderno pueden ser de afiliado: si reservas a través de ellos, el cuaderno recibe una pequeña comisión y a ti no te cuesta nada más. Solo recomiendo lo que usaría yo.</p>
+    </section>
+  </main>
+
+  <footer>© 2026 Eduardo · Cuaderno de ruta</footer>
+</div>
+</body>
+</html>
